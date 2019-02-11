@@ -1,0 +1,28 @@
+version: "3.4"
+services:
+  user:
+    build: .
+    env_file:
+      - variables.env
+    command: npm start
+    ports:
+      - "3001:3001"
+    expose:
+      - "3001"
+    depends_on:
+      - db
+    volumes:
+      - .:/app/user
+    logging:
+      options:
+        max-size: 500m
+  db:
+    image: mongo:4.1
+    volumes:
+      - db:/var/lib/mongo
+    ports:
+      - "27017:27017"
+
+volumes:
+  db:
+    driver: local

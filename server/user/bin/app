@@ -1,0 +1,49 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+  echo "Usage : $0 Command"
+  echo "Available commands:
+  build   | b
+  console | c
+  install | i
+  kill    | k
+  lint    | l
+  test    | t
+  up      | u
+  watch   | w"
+  exit
+fi
+
+FUNCTION=$1
+
+shift
+
+case "$FUNCTION" in
+  build | b )
+    docker-compose build
+    ;;
+  console | c )
+    docker-compose run --rm user bash
+    ;;
+  install | i )
+    docker-compose run --rm user `npm install "$@"`
+    ;;
+  kill | k )
+    docker-compose down
+    ;;
+  lint | l )
+    docker-compose run --rm user `npm run lint`
+    ;;
+  test | t )
+    docker-compose run --rm user `npm test`
+    ;;
+  up | u )
+    docker-compose up
+    ;;
+  watch | w )
+    docker-compose run --rm user `npm run watch`
+    ;;
+  * )
+    echo "Unsupported command"
+esac
