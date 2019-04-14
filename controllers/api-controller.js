@@ -1,4 +1,4 @@
-const Todos = require('../models/todoModel')
+const Todos = require('../models/todo-model')
 const bodyParser = require('body-parser')
 
 module.exports = function (app) {

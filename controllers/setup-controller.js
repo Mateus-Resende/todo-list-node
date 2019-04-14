@@ -1,4 +1,4 @@
-const Todos = require('../models/todoModel')
+const Todos = require('../models/todo-model')
 
 module.exports = function(app) {
   app.get('/api/setupTodos', function (req, res) {

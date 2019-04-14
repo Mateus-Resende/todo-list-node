@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const config = require('./config')
-const setupController = require('./controllers/setupController')
-const apiController = require('./controllers/apiController')
+const setupController = require('./controllers/setup-controller')
+const apiController = require('./controllers/api-controller')
 
 const port = process.env.PORT || 3000
 

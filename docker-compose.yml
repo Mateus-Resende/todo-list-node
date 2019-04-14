@@ -1,6 +1,6 @@
 version: "3.4"
 services:
-  user:
+  app:
     build: .
     env_file:
       - variables.env
