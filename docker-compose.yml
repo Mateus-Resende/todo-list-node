@@ -12,7 +12,8 @@ services:
     depends_on:
       - db
     volumes:
-      - .:/app/user
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     logging:
       options:
         max-size: 500m

@@ -1,0 +1,35 @@
+version: "3.4"
+services:
+  user:
+    stdin_open: true
+    tty: true
+    build: .
+    env_file:
+      - variables.env
+    command:
+      - nodemon
+      - "--inspect-brk=0.0.0.0"
+      - "."
+    ports:
+      - "3001:3001"
+      - "9229:9229"
+    expose:
+      - "3001"
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    logging:
+      options:
+        max-size: 500m
+  db:
+    image: mongo:4.1
+    volumes:
+      - db:/var/lib/mongo
+    ports:
+      - "27017:27017"
+
+volumes:
+  db:
+    driver: local

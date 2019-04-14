@@ -1,0 +1,23 @@
+{
+  "name": "todo-list",
+  "version": "0.0.1",
+  "description": "Sample to-do list",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js -- --inspect 0.0.0.0:9229 ",
+    "test": ""
+  },
+  "keywords": [
+    "node",
+    "todo",
+    "learn"
+  ],
+  "author": "Mateus Resende",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.1"
+  }
+}
